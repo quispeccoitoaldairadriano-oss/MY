@@ -1185,11 +1185,21 @@ function enterUniverse(){
   audio.play().then(()=>{ playing=true; syncIcons(); }).catch(()=>{});
 }
 
-enterBtn.addEventListener('click', enterUniverse);
-enterBtn.addEventListener('touchend', e=>{ e.preventDefault(); enterUniverse(); });
+enterBtn.addEventListener('click', () => {
+  enterUniverse();
+  audio.play();
+});
+
+enterBtn.addEventListener('touchend', e => {
+  e.preventDefault();
+  enterUniverse();
+  audio.play();
+});
 </script>
-<audio id="audio" loop>
-  <source src="disfruto.mp3" type="audio/mpeg">
+
+<audio id="audio" loop playsinline>
+  <source src="music/disfruto.mp3" type="audio/mpeg">
 </audio>
+
 </body>
 </html>
